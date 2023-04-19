@@ -1,0 +1,40 @@
+{
+  "name": "Baketan",
+  "author": "COZMIK",
+  "version": "1.0.0",
+  "keywords": ["pebble-app"],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "Baketan",
+    "uuid": "649ff65f-993d-49eb-a187-620113931101",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk",
+      "diorite"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "messageKeys": [
+      "dummy"
+    ],
+    "resources": {
+      "media": [
+        {
+          "type": "bitmap",
+          "name": "bg",
+          "file": "bg.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "dot",
+          "file": "eye_dot.png"
+        }
+      ]
+    }
+  }
+}
