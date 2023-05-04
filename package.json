@@ -11,10 +11,7 @@
     "sdkVersion": "3",
     "enableMultiJS": true,
     "targetPlatforms": [
-      "aplite",
-      "basalt",
-      "chalk",
-      "diorite"
+      "basalt"
     ],
     "watchapp": {
       "watchface": true
@@ -26,12 +23,12 @@
       "media": [
         {
           "type": "bitmap",
-          "name": "bg",
+          "name": "BG",
           "file": "bg.png"
         },
         {
           "type": "bitmap",
-          "name": "dot",
+          "name": "DOT",
           "file": "eye_dot.png"
         }
       ]
