@@ -1,5 +1,7 @@
 #include <pebble.h>
 #include "mainWindow.h"
+#include "../modules/ImageCollection.h"
+#include "../modules/TextCollection.h"
 
 #define NUMBER_OF_DIGITS 4
 
@@ -24,6 +26,9 @@ static Layer *canvas;
 static GBitmap *bg;
 static BitmapLayer *bg_layer;
 
+struct ImageCollection * background;
+struct ImageCollection * digits;
+
 
 
 void eye_dot_setup()
@@ -35,6 +40,8 @@ static void canvas_update_proc(Layer *layer, GContext *ctx)
 {
 
 }
+
+//void load_images
 
 static void window_load(Window *window)
 {
