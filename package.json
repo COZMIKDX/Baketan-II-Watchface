@@ -28,8 +28,53 @@
         },
         {
           "type": "bitmap",
-          "name": "DOT",
-          "file": "eye_dot.png"
+          "name": "NUM_0",
+          "file": "num_0.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_1",
+          "file": "num_1.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_2",
+          "file": "num_2.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_3",
+          "file": "num_3.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_4",
+          "file": "num_4.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_5",
+          "file": "num_5.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_6",
+          "file": "num_6.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_7",
+          "file": "num_7.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_8",
+          "file": "num_8.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "NUM_9",
+          "file": "num_9.png"
         }
       ]
     }
