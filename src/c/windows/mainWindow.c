@@ -18,30 +18,14 @@ static const int NUMBERS[] = {
     RESOURCE_ID_NUM_9
 };
 
-static GBitmap *digits[NUMBER_OF_DIGITS];
-static BitmapLayer *digit_layers[NUMBER_OF_DIGITS];
-
 static Window *s_window;
 static Layer *canvas;
 static GBitmap *bg;
 static BitmapLayer *bg_layer;
 
 struct ImageCollection * background;
-struct ImageCollection * digits;
+struct ImageCollection * time;
 
-
-
-void eye_dot_setup()
-{
-    
-}
-
-static void canvas_update_proc(Layer *layer, GContext *ctx)
-{
-
-}
-
-//void load_images
 
 static void window_load(Window *window)
 {
@@ -49,27 +33,35 @@ static void window_load(Window *window)
     Layer *window_layer = window_get_root_layer(s_window);
     GRect window_bounds = layer_get_bounds(window_layer);
 
-    // Setting up the layer I'll draw on.
-    canvas = layer_create(window_bounds);
-    layer_set_update_proc(canvas, canvas_update_proc);
-    layer_add_child(window_layer, canvas);
+    APP_LOG(APP_LOG_LEVEL_INFO, "Initializing ImageCollection struct");
+    background = init_image_collection((uint32_t) 1);
+    if (background == NULL)
+    {
+        APP_LOG(APP_LOG_LEVEL_ERROR, "ImageCollection pointer is NULL");
+        return;
+    }
 
-    // Setting up the background image
-    bg = gbitmap_create_with_resource(RESOURCE_ID_BG);
-    bg_layer = bitmap_layer_create(window_bounds);
-    bitmap_layer_set_compositing_mode(bg_layer, GCompOpSet);
-    bitmap_layer_set_bitmap(bg_layer, bg);
-    layer_add_child(window_layer, bitmap_layer_get_layer(bg_layer));
+    // Time collection. 4 digits and the semicolon in the middle.
+    APP_LOG(APP_LOG_LEVEL_INFO, "Initializing ImageCollection struct");
+    time = init_image_collection((uint32_t) 5);
+    if (time == NULL)
+    {
+        APP_LOG(APP_LOG_LEVEL_ERROR, "ImageCollection pointer is NULL");
+        return;
+    }
 
-    // Time layer
-    // TODO store coords for each digit within the time display area I made in GIMP
-    // and use a for loop to create the layers, giving it offset values so I can easily move
-    // the whole thing.
+    add_image(background, window_bounds, RESOURCE_ID_BGV2, window_layer);
+    add_image(time, GRect(0,0,23,39), NUMBERS[0],window_layer);
+    add_image(time, GRect(0,0,23,39), NUMBERS[0],window_layer);
+    add_image(time, GRect(0,0,23,39), RESOURCE_ID_MIDDLE_DOTS,window_layer);
+    add_image(time, GRect(0,0,23,39), NUMBERS[0],window_layer);
+    add_image(time, GRect(0,0,23,39), NUMBERS[0],window_layer);
 }
 
 void window_unload(Window *window)
 {
-    gbitmap_destroy(bg);
+    destroy_image_collection(background);
+    destroy_image_collection(time);
     bitmap_layer_destroy(bg_layer);
 }
 
